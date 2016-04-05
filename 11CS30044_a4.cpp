@@ -318,7 +318,7 @@ int main()
 	voxels1 = findVoxelsOfObject(vertices1, faces1);
 	voxels2 = findVoxelsOfObject(vertices2, faces2);
 
-	voxels = voxelIntersection(voxels1, voxels2);
+	voxels = voxelDifference(voxels1, voxels2);
 	writeVoxelsToObjFile(voxels);
 
 	
