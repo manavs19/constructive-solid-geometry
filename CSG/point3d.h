@@ -5,6 +5,7 @@ class Point3D
 {
 public:
     double x, y, z;
+    bool color;
     Point3D(double, double, double);
     Point3D();
     bool operator<(const Point3D&)const;

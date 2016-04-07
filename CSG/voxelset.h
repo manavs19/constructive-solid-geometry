@@ -11,12 +11,13 @@ class VoxelSet
 public:
     std::vector<Point3D> vertices;
     std::vector<std::vector<int> > faces;
+    std::vector<bool> fcolor;
     Point3D center, eye;
     double scalex, scaley, scalez;
     VoxelSet();
     void ReadFromFile(const char*);
     void FromPointset(pointset&);
-    set<Point3D> createPointSet();
+    set<Point3D> createPointSet(bool);
     void save(const char*);
     void setScale();
 };

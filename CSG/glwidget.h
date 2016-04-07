@@ -28,8 +28,9 @@ public:
     virtual void keyPressEvent(QKeyEvent*);
     void resizeGL(int, int);
     void saveObj(const char*);
-    void scaleTemp(double x, double y, double z);
+    void rotateTemp(double, double, double);
     void translateTemp(double x, double y, double z);
+    Point3D findNormal(int);
 
 
 };

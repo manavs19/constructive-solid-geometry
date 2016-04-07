@@ -44,10 +44,12 @@ vector<int> getFace(int a, int b, int c, int d) {
 void VoxelSet::FromPointset(pointset &ps) {
     vertices.resize(0);
     faces.resize(0);
+    fcolor.resize(0);
 
     for(set<Point3D>::iterator it = ps.points.begin();it!=ps.points.end();++it) {
 
         double x=it->x, y=it->y, z=it->z;
+        bool c = it->color;
         int numLines = vertices.size();
         vertices.push_back(Point3D(x-0.5, y-0.5, z+0.5));
         vertices.push_back(Point3D(x-0.5, y-0.5, z-0.5));
@@ -64,6 +66,13 @@ void VoxelSet::FromPointset(pointset &ps) {
         faces.push_back(getFace(numLines, 2+numLines, 3+numLines, 1+numLines));
         faces.push_back(getFace(2+numLines, 6+numLines, 7+numLines, 3+numLines));
         faces.push_back(getFace(1+numLines, 5+numLines, 4+numLines, numLines));
+
+        fcolor.push_back(c);
+        fcolor.push_back(c);
+        fcolor.push_back(c);
+        fcolor.push_back(c);
+        fcolor.push_back(c);
+        fcolor.push_back(c);
 
     }
 }
@@ -126,7 +135,7 @@ int findNormalAxis(Point3D p[4])
     return 3;
 }
 
-set<Point3D> VoxelSet::createPointSet() {
+set<Point3D> VoxelSet::createPointSet(bool color) {
     set<pair<Point3D, int> > faceCenters;
     for(vector<vector<int> >::iterator it = faces.begin();it!=faces.end();++it)
     {
@@ -148,6 +157,7 @@ set<Point3D> VoxelSet::createPointSet() {
         z/=4.0;
 
         Point3D center(x,y,z);
+        center.color = color;
         int normalAxis = findNormalAxis(corner);
         faceCenters.insert(make_pair(center, normalAxis));
     }

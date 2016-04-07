@@ -34,8 +34,9 @@ void MainWindow::on_actionOpen_File_triggered()
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"~",tr("OBJ files (*.obj)"));
 
     VoxelSet vs;
+    bool color = (ui->glpanel->ps != NULL);
     vs.ReadFromFile(fileName.toStdString().c_str());
-    pointset temp(vs.createPointSet());
+    pointset temp(vs.createPointSet(color));
 
     if(ui->glpanel->ps == NULL) {
         ui->glpanel->ps = new pointset(temp);
@@ -131,7 +132,7 @@ void MainWindow::on_scaleButton_clicked()
     double sx = ui->sx->text().toDouble();
     double sy = ui->sy->text().toDouble();
     double sz = ui->sz->text().toDouble();
-    ui->glpanel->scaleTemp(sx, sy, sz);
+    ui->glpanel->rotateTemp(sx, sy, sz);
 }
 
 void MainWindow::on_translateButton_clicked()

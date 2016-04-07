@@ -9,6 +9,7 @@ class pointset
 {
 private:
     Point3D findMin();
+    Point3D findMax();
 public:
     set<Point3D> points;
     void union_(pointset&);
@@ -16,7 +17,7 @@ public:
     void intersection_(pointset&);
     void setPoints(set<Point3D>);
     void translate(double, double, double);
-    void scale(double, double, double);
+    void rotate(double, double, double);
     pointset();
     pointset(set<Point3D>);
     pointset(pointset&);

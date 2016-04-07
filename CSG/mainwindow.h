@@ -28,6 +28,8 @@ private slots:
 
     void on_translateButton_clicked();
 
+    void on_rotateButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

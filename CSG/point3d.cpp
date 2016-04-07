@@ -5,10 +5,11 @@ Point3D::Point3D(double x, double y, double z)
     this->x = x;
     this->y = y;
     this->z = z;
+    color = false;
 }
 
 Point3D::Point3D() {
-    x=0; y=0; z=0;
+    x=0; y=0; z=0; color = false;
 }
 
 bool Point3D::operator<(const Point3D &p)const
