@@ -18,14 +18,18 @@ SOURCES += main.cpp\
     point3d.cpp \
     pointset.cpp \
     glwidget.cpp \
-    inputdialog.cpp
+    inputdialog.cpp \
+    createobjects.cpp \
+    surfaceToVoxels.cpp
 
 HEADERS  += mainwindow.h \
     voxelset.h \
     point3d.h \
     pointset.h \
     glwidget.h \
-    inputdialog.h
+    inputdialog.h \
+    createobjects.h \
+    surfaceToVoxels.h
 
 FORMS    += mainwindow.ui \
     inputdialog.ui

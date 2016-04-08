@@ -16,7 +16,7 @@ public:
     double scalex, scaley, scalez;
     VoxelSet();
     void ReadFromFile(const char*);
-    void FromPointset(pointset&);
+    void FromPointset(pointset&, bool);
     set<Point3D> createPointSet(bool);
     void save(const char*);
     void setScale();

@@ -30,6 +30,18 @@ private slots:
 
     void on_rotateButton_clicked();
 
+    void on_actionCuboid_triggered();
+
+    void open(QString);
+
+    void on_actionCylinder_triggered();
+
+    void on_actionCone_triggered();
+
+    void on_actionSphere_triggered();
+
+    void on_actionOpen_Triangle_File_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

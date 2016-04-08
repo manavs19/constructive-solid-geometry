@@ -41,7 +41,7 @@ vector<int> getFace(int a, int b, int c, int d) {
     return face;
 }
 
-void VoxelSet::FromPointset(pointset &ps) {
+void VoxelSet::FromPointset(pointset &ps, bool color) {
     vertices.resize(0);
     faces.resize(0);
     fcolor.resize(0);
@@ -49,8 +49,11 @@ void VoxelSet::FromPointset(pointset &ps) {
     for(set<Point3D>::iterator it = ps.points.begin();it!=ps.points.end();++it) {
 
         double x=it->x, y=it->y, z=it->z;
-        bool c = it->color;
         int numLines = vertices.size();
+        bool c = it->color;
+        if (!color)
+            c = color;
+
         vertices.push_back(Point3D(x-0.5, y-0.5, z+0.5));
         vertices.push_back(Point3D(x-0.5, y-0.5, z-0.5));
         vertices.push_back(Point3D(x-0.5, y+0.5, z+0.5));

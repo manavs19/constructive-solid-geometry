@@ -22,12 +22,13 @@ void GLWidget::setVoxelSet(VoxelSet vs) {
 }
 
 void GLWidget::updateVoxelSet() {
-    vs.FromPointset(*ps);
+    vs.FromPointset(*ps, false);
+    ps->resetColor();
     vs.setScale();
 }
 
 void GLWidget::updateNewVoxels(pointset* temp) {
-    vs.FromPointset(*temp);
+    vs.FromPointset(*temp, true);
     vs.setScale();
 }
 
@@ -113,44 +114,47 @@ void GLWidget::keyPressEvent(QKeyEvent* e) {
     double angle, tx, ty, tz;
     switch (e->key()) {
     case Qt::Key_Down:
-//        QTextStream(stderr) << "DOWN";
         angle = -0.02f;
         tz = az;
         ty = ay;
         ay = ty*cos(angle)-tz*sin(angle);
         az = ty*sin(angle)+tz*cos(angle);
-//        QTextStream(stderr) << " " << ax << " " << ay << " " << az << " " << (az*tz<0) << " " << sin(angle) << endl;
         break;
     case Qt::Key_Right:
-        QTextStream(stderr) << "RIGHT";
         angle = 0.02f;
         tx = ax;
         tz = az;
         ax = tx*cos(angle)+tz*sin(angle);
         az = -tx*sin(angle)+tz*cos(angle);
-//        QTextStream(stderr) << " " << ax << " " << ay << " " << az << " " << (az*tz<0) << " " << sin(angle) << endl;
         break;
     case Qt::Key_Up:
-//        QTextStream(stderr) << "UP";
         angle = 0.02f;
         tz = az;
         ty = ay;
         ay = ty*cos(angle)-tz*sin(angle);
         az = ty*sin(angle)+tz*cos(angle);
-//        QTextStream(stderr) << " " << ax << " " << ay << " " << az << " " << (az*tz<0) << " " << sin(angle) << endl;
         break;
     case Qt::Key_Left:
-//        QTextStream(stderr) << "LEFT";
         angle = -0.02f;
         tx = ax;
         tz = az;
         ax = tx*cos(angle)+tz*sin(angle);
         az = -tx*sin(angle)+tz*cos(angle);
-//        QTextStream(stderr) << " " << ax << " " << ay << " " << az << " " << (az*tz<0) << " " << sin(angle) << endl;
         break;
     case Qt::Key_A:
-//        QTextStream(stderr) << "OK";
-        u = -u;
+        QTextStream(stderr) << "K";
+        angle = 0.02f;
+        tx = ax;
+        ty = ay;
+        ax = tx*cos(angle)-ty*sin(angle);
+        ay = tx*sin(angle)+ty*cos(angle);
+        break;
+    case Qt::Key_S:
+        angle = -0.02f;
+        tx = ax;
+        ty = ay;
+        ax = tx*cos(angle)-ty*sin(angle);
+        ay = tx*sin(angle)+ty*cos(angle);
         break;
     }
 }

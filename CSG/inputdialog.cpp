@@ -12,3 +12,5 @@ InputDialog::~InputDialog()
 {
     delete ui;
 }
+
+

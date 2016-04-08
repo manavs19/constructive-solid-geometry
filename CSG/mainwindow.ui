@@ -366,15 +366,14 @@
      <property name="title">
       <string>&amp;Add</string>
      </property>
-     <addaction name="action3D_Line"/>
-     <addaction name="action3D_Triangle"/>
      <addaction name="actionCuboid"/>
      <addaction name="actionCylinder"/>
      <addaction name="actionCone"/>
      <addaction name="actionSphere"/>
     </widget>
-    <addaction name="actionOpen_File"/>
     <addaction name="menuAdd"/>
+    <addaction name="actionOpen_File"/>
+    <addaction name="actionOpen_Triangle_File"/>
     <addaction name="action_Save_Result"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
@@ -422,7 +421,7 @@
   </action>
   <action name="actionCuboid">
    <property name="text">
-    <string>Cuboid</string>
+    <string>Cube</string>
    </property>
   </action>
   <action name="actionCylinder">
@@ -443,6 +442,11 @@
   <action name="actionCurrent_Object">
    <property name="text">
     <string>Current Object</string>
+   </property>
+  </action>
+  <action name="actionOpen_Triangle_File">
+   <property name="text">
+    <string>Open Surface File</string>
    </property>
   </action>
  </widget>

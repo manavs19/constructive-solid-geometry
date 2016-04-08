@@ -116,3 +116,13 @@ void pointset::rotate(double tx, double ty, double tz) {
 
     this->translate(center.x, center.y, center.z);
 }
+
+void pointset::resetColor() {
+    set<Point3D> npoints;
+    for(set<Point3D>::iterator it = points.begin(); it != points.end(); it++) {
+        Point3D p(it->x, it->y, it->z);
+        npoints.insert(p);
+    }
+
+    points = npoints;
+}

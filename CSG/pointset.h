@@ -18,6 +18,7 @@ public:
     void setPoints(set<Point3D>);
     void translate(double, double, double);
     void rotate(double, double, double);
+    void resetColor();
     pointset();
     pointset(set<Point3D>);
     pointset(pointset&);
